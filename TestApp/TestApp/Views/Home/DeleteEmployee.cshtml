@@ -1,0 +1,43 @@
+﻿@model TestApp.Models.Employee
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="text-center">
+        <table>
+            <tr>
+                <td>EmployeeId</td>
+                <td>@Html.LabelFor(model => model.EmployeeId)</td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>@Html.EditorFor(model => model.FirstName)</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@Html.EditorFor(model => model.LastName)</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>@Html.EditorFor(model => model.City)</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>@Html.EditorFor(model => model.State)</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>@Html.EditorFor(model => model.Gender)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" onclick="return confirm('Are you sure?')" value="Delete" /></td>
+            </tr>
+        </table>
+    </div>
+}

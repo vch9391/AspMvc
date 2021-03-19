@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TestApp.Models.List>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div>
+
+    <style>
+        th, td {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+    </style>
+
+    <table border="1">
+        <tr>
+            <th> Date </th>
+            <th> Humidity </th>
+            <th> Clouds(%) </th>
+            <th> Wind Speed </th>
+            <th> Visibility </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dt_txt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.main.humidity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clouds.all)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wind.speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.visibility)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
